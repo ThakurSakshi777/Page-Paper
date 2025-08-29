@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 import list from "../../public/list.json";
+import Cards from "./Cards";
 
 const Freebook = () => {
   var settings = {
@@ -18,8 +19,8 @@ const Freebook = () => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
+          slidesToShow: 2,
+          slidesToScroll: 2,
           infinite: true,
           dots: true,
         },
@@ -45,41 +46,21 @@ const Freebook = () => {
   const filterData = list.filter((data) => data.category == "free");
   console.log(filterData);
   return (
+    <div>
     <div className="max-w-screen-2x1 container mx-auto md:px-20 px-4 ">
       <h1 className="font-semibold text-xl pb-2"> Free Offered Courses</h1>
       <p>
         Hand-picked recommendations from our readers and editors. Find your next
         favorite book
       </p>
-
+    </div>
       {/* sliders */}
 
-      <div className="slider-container">
-        <Slider {...settings}>
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>7</h3>
-          </div>
-          <div>
-            <h3>8</h3>
-          </div>
+      <div className="slider-container max-w-screen-1 container mx-auto md:px-10 px-1">
+        <Slider {...settings} >
+         {filterData.map((item)=>(
+          <Cards item={item} key={item.id}/>
+         ))}
         </Slider>
       </div>
     </div>
@@ -87,3 +68,6 @@ const Freebook = () => {
 };
 
 export default Freebook;
+
+
+   
