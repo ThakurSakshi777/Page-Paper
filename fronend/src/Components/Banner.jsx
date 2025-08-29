@@ -2,9 +2,9 @@ import React from "react";
 import banner from "../../public/banner.png";
 
 const Banner = () => {
-  return (
+  return ( 
     <>
-      <div className="max-w-screen-2x1 container mx-auto md:px-20 px-4 flex flex-col md:flex-row">
+      <div className="max-w-screen-2x1 container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10 gap-10">
         {/* left contianer */}
         <div className=" order-2 md:order-1 w-full md:w-1/2 mt-12 md:mt-32">
           <div className="space-y-12">
@@ -47,7 +47,7 @@ const Banner = () => {
         </div>
 
         {/* right Contianer */}
-        <div className=" order-1 w-full md:w-1/2 mt-12 md:mt-32">
+        <div className=" order-1 w-full md:w-1/2 mt-12 md:mt-32 ml-12">
           <img src={banner} alt="" />
         </div>
       </div>
