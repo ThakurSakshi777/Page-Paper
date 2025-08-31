@@ -2,7 +2,7 @@ import React from "react";
 import banner from "../../public/banner.png";
 
 const Banner = () => {
-  return ( 
+  return (
     <>
       <div className="max-w-screen-2x1 container mx-auto md:px-20 px-4 flex flex-col md:flex-row my-10 gap-10">
         {/* left contianer */}
@@ -14,7 +14,11 @@ const Banner = () => {
             </h1>
             <p className="text-x1">
               {" "}
-            "Welcome to our bookstore, a place where stories come alive. From timeless classics to the latest releases, we bring you books that inspire, entertain, and stay with you forever. Whether you’re searching for knowledge, adventure, or comfort, your next favorite read is just a click away."
+              Welcome to our bookstore, a place where stories come alive. From
+              timeless classics to the latest releases, we bring you books that
+              inspire, entertain, and stay with you forever. Whether you’re
+              searching for knowledge, adventure, or comfort, your next favorite
+              read is just a click away.
             </p>
 
             {/* Email input */}
