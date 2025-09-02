@@ -1,6 +1,8 @@
 import React from 'react'
 import Navbar from './Navbar';
-import list from "../../public/list.json"
+import list from "../../public/list.json";
+import Cards from "./Cards";
+import {Link} from "react-router-dom";
 
 const Course = () => {
   return (
@@ -21,12 +23,18 @@ const Course = () => {
                    <p className='mt-12'>
                     Step into a world of books designed for every reader. Our collection brings together the best in fiction, non-fiction, children’s stories, and academic works—all carefully chosen to match your interests. With easy browsing and fast delivery, finding the right book has never been simpler.
                    </p>
+                <Link to="/">
                    <button className='px-4 py-2 mt-6 text-white duration-300 bg-pink-500 rounded-md hover:bg-pink-700'> Back</button>
+                </Link>
               </div>
               
               {/* Cards */}
-              <div>
-                
+              <div className='grid grid-cols-1 mt-12 md:grid-cols-4'>
+                 {
+                  list.map((item)=>(
+                    <Cards key={item.id} item={item}/>
+                  ))
+                 }
               </div>
          </div>
         
