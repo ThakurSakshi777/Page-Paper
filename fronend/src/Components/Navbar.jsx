@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Login from "./Login";
 
 const Navbar = () => {
   const [Sticky , setSticky] = useState(false)
@@ -131,7 +132,8 @@ const Navbar = () => {
 
           {/* login button */}
           <div>
-            <a className="btn">login</a>
+            <a  className="btn" onClick={()=>document.getElementById('my_modal_3').showModal()}>login</a>
+            <Login/>
           </div>
         </div>
       </div>
