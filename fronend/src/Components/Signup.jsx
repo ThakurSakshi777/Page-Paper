@@ -1,18 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Login from "./Login";
+import { useForm } from "react-hook-form";
 
 const Signup = () => {
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useForm();
+  
+    const onSubmit = (data) => console.log(data);
   return (
    <div className="flex items-center justify-center h-screen min-h-screen bg-gray-100 dark:bg-gray-900">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg dark:bg-gray-800">
              <div className="">
-               <form method="dialog">
-                 {/* if there is a button in form, it will close the modal */}
+              
+                {/*  "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+               <form onSubmit={handleSubmit(onSubmit)} method="dialog">
+                 {/*  close the modal */}
                  <Link to ={"/"} className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2">
                    ✕
                  </Link>
-               </form>
+              
                
                {/* input text */}
                <h3 className="text-lg font-bold">Create an Account</h3>
@@ -20,11 +30,22 @@ const Signup = () => {
                <div className="mt-4 space-y-2">
                  <span>Name</span>
                  <br />
+
+                 {/* input name */}
                  <input type="text"
                  placeholder="Enter your FullName" 
                  className="px-8 py-2 border rounded outline-none w-80-md"
+                  // {/*  validation with required*/}
+                {...register("name", { required: true })}
                  />
+                 {/*  validation fails  */}
+                 <br />
+              {errors.name && (
+                <span className="text-red-500">This field is required</span>
+                  )}
                </div>
+               
+               
                {/* Emali   */}
                <div className="mt-4 space-y-2">
                  <span>Email</span>
@@ -32,8 +53,15 @@ const Signup = () => {
                  <input type="email"
                  placeholder="Enter your email" 
                  className="px-8 py-2 border rounded outline-none w-80-md"
+                   // {/*  validation with required*/}
+                {...register("email", { required: true })}
                  />
+                      {/*  validation fails  */}
+              <br />
+              {errors.password && <span className="text-red-500">This field is required</span>}
                </div>
+
+               
                {/* password */}
                 <div className="mt-4 space-y-2">
                  <span>Password</span>
@@ -41,13 +69,22 @@ const Signup = () => {
                  <input type="text"
                  placeholder="Enter your email" 
                  className="px-8 py-2 border rounded outline-none w-80-md"
+                  // {/*  validation with required*/}
+                {...register("password", { required: true })}
                  />
+                   {/*  validation fails  */}
+              <br />
+              {errors.password && <span className="text-red-500">This field is required</span>}
                </div>
+
+               
                {/* button */}
                <div className="flex justify-around mt-4">
                   <button className="px-3 py-1 text-white duration-200 bg-pink-500 rounded-md hover:bg-pink-700">SignUp</button>
                   <p>
-                   
+
+                    
+                   {/* Login */}
                      Have account?{" "} 
                      <button  className="text-blue-500 underline cursor-pointer"
                      onClick={() =>
@@ -58,6 +95,7 @@ const Signup = () => {
                      <Login/>
                   </p>
                </div>
+                </form>
              </div>
            </div>
    </div>
