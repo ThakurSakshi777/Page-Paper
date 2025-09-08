@@ -14,12 +14,11 @@ const Login = () => {
     <div>
       <dialog id="my_modal_3" className="modal">
         <div className="modal-box">
-          
-          {/*  "handleSubmit" will validate your inputs before invoking "onSubmit" */}
+          {/*  "handleSubmit" will validate  */}
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/*  close the modal */}
             <Link
-              to="/"
+              to={"/"}
               className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
             >
               ✕
@@ -38,14 +37,13 @@ const Login = () => {
                 // {/*  validation with required*/}
                 {...register("email", { required: true })}
               />
-        {/*  validation fails  */}
+              {/*  validation fails  */}
               <br />
               {errors.email && (
                 <span className="text-red-500">This field is required</span>
               )}
             </div>
 
-            
             {/* password */}
             <div className="mt-4 space-y-2">
               <span>Password</span>
@@ -54,12 +52,14 @@ const Login = () => {
                 type="password"
                 placeholder="Enter your password"
                 className="px-8 py-2 border rounded outline-none w-80-md"
-                 // {/*  validation with required*/}
+                // {/*  validation with required*/}
                 {...register("password", { required: true })}
               />
               {/*  validation fails  */}
               <br />
-              {errors.password && <span className="text-red-500">This field is required</span>}
+              {errors.password && (
+                <span className="text-red-500">This field is required</span>
+              )}
             </div>
             {/* button */}
             <div className="flex justify-around mt-4">
