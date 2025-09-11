@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Mern Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1" ,
+    "start":" node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThakurSakshi777/Page-Paper.git"
+  },
+  "author": "Sakshi singh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ThakurSakshi777/Page-Paper/issues"
+  },
+  "homepage": "https://github.com/ThakurSakshi777/Page-Paper#readme",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
