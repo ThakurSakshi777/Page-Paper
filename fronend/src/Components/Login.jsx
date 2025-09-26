@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const {
@@ -10,26 +11,28 @@ const Login = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit =  async (data) => {
-      const userInfo ={
-        email:data.email,
-        password:data.password,
-      };
-     await axios.post("http://localhost:4001/user/login" , userInfo)
-      .then((res)=>{
-        console.log(res.data)
-        if(res.data){
-          alert("Login Successfully")
+  const onSubmit = async (data) => {
+    const userInfo = {
+      email: data.email,
+      password: data.password,
+    };
+    await axios
+      .post("http://localhost:4001/user/login", userInfo)
+      .then((res) => {
+        console.log(res.data);
+        if (res.data) {
+          toast.success(" Login Successfully");
         }
         localStorage.setItem("Users", JSON.stringify(res.data.user));
-      }).catch((err) =>{
-        if(err.response){
-            alert("Error:" + err.response.data.message);
-        console.log(err)
-        }
       })
-    };
-  
+      .catch((err) => {
+        if (err.response) {
+          toast.error("Error:" + err.response.data.message);
+          console.log(err);
+        }
+      });
+  };
+
   return (
     <div>
       <dialog id="my_modal_3" className="modal">
@@ -37,12 +40,13 @@ const Login = () => {
           {/*  "handleSubmit" will validate  */}
           <form onSubmit={handleSubmit(onSubmit)} method="dialog">
             {/*  close the modal */}
-            <Link
-              to={"/"}
+            <button
+              type="button"
               className="absolute btn btn-sm btn-circle btn-ghost right-2 top-2"
+              onClick={() => document.getElementById("my_modal_3").close()}
             >
               ✕
-            </Link>
+            </button>
 
             {/* input text */}
             <h3 className="text-lg font-bold">Login</h3>

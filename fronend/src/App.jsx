@@ -4,7 +4,7 @@ import Course from './Components/Course';
 import Signup from './Components/Signup';
 import Home from './Home/Home';
 import {Routes , Route} from "react-router-dom";
-
+import  { Toaster } from 'react-hot-toast';
 
 
 function App() {
@@ -16,6 +16,7 @@ function App() {
       <Route path='/signup' element ={<Signup/>}/>
       <Route path='/contact' element={<Contact/>}/>
      </Routes>
+     <Toaster />
     </>
   )
 }
